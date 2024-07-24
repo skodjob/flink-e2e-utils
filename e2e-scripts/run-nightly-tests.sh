@@ -243,7 +243,7 @@ function run_group_2 {
     e2e_modules="${e2e_modules},$(find flink-walkthroughs -mindepth 2 -maxdepth 2 -name 'pom.xml' -printf '%h\n' | sort -u | tr '\n' ',')"
 
     PROFILE="$PROFILE -Prun-end-to-end-tests"
-    run_mvn ${MVN_COMMON_OPTIONS} ${MVN_LOGGING_OPTIONS} ${PROFILE} verify -pl ${e2e_modules} -Dtests="${TESTS}" -DdistDir=$(readlink -e build-target) -Dcache-dir=$E2E_CACHE_FOLDER -Dcache-download-attempt-timeout=4min -Dcache-download-global-timeout=10min
+    run_mvn ${MVN_COMMON_OPTIONS} ${MVN_LOGGING_OPTIONS} ${PROFILE} verify -pl ${e2e_modules} -Dtest="${TESTS}" -DdistDir=$(readlink -e build-target) -Dcache-dir=$E2E_CACHE_FOLDER -Dcache-download-attempt-timeout=4min -Dcache-download-global-timeout=10min
 
     EXIT_CODE=$?
 }
