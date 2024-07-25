@@ -230,6 +230,10 @@ function run_group_2 {
 
     printf "\n[PASS] All bash e2e-tests passed\n"
 
+    EXIT_CODE=$?
+}
+
+function run_group_3 {
     printf "\n\n==============================================================================\n"
     printf "Running Java end-to-end tests\n"
     printf "==============================================================================\n"
@@ -252,9 +256,12 @@ if [ "$1" == "1" ]; then
     run_group_1
 elif [ "$1" == "2" ]; then
     run_group_2
+elif [ "$1" == "3" ]; then
+    run_group_3
 else
     run_group_1
     run_group_2
+    run_group_3
 fi
 
 
